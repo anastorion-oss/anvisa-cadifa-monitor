@@ -31,6 +31,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add cadifa_completo.xlsx
+          git add .
           git commit -m "Atualiza CADIFA" || echo "Sem alteracoes"
           git push
