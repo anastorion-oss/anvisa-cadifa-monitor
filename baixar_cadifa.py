@@ -175,16 +175,45 @@ def decodificar_dsr(resposta: dict) -> pd.DataFrame:
 def main():
     print(f"Buscando até {PAGE_SIZE} linhas...")
     resposta = buscar_dados(PAGE_SIZE)
-    df = decodificar_dsr(resposta)
-    print(f"Total de linhas obtidas: {len(df)}")
+    df_novo = decodificar_dsr(resposta)
 
-    if len(df) == PAGE_SIZE:
-        print("ATENÇÃO: quantidade retornada igual ao solicitado.")
-        print("Pode haver mais linhas -- aumente PAGE_SIZE e rode novamente.")
+    arquivo_atual = "cadifa_completo.xlsx"
+    arquivo_anterior = "cadifa_completo_anterior.xlsx"
 
-    saida = "cadifa_completo.xlsx"
-    df.to_excel(saida, index=False)
-    print(f"Arquivo salvo: {saida}")
+    try:
+        df_antigo = pd.read_excel(arquivo_atual)
+
+        # Salva a planilha antiga
+        df_antigo.to_excel(arquivo_anterior, index=False)
+
+        # Identifica CADIFAs novas
+        novas = df_novo[
+            ~df_novo["Nº CADIFA"].astype(str).isin(
+                df_antigo["Nº CADIFA"].astype(str)
+            )
+        ]
+
+        if len(novas) > 0:
+            novas.to_excel("novas_cadifas.xlsx", index=False)
+
+            print(f"{len(novas)} novas CADIFAs encontradas!")
+
+            for _, linha in novas.iterrows():
+                print(
+                    f"- {linha['Razão Social']} | "
+                    f"{linha['Insumo (IFA)']} | "
+                    f"{linha['Nº CADIFA']}"
+                )
+        else:
+            print("Nenhuma nova CADIFA encontrada.")
+
+    except Exception as e:
+        print(f"Primeira execução ou erro na comparação: {e}")
+
+    df_novo.to_excel(arquivo_atual, index=False)
+
+    print(f"Total de linhas obtidas: {len(df_novo)}")
+    print(f"Arquivo salvo: {arquivo_atual}")
 
 
 if __name__ == "__main__":
