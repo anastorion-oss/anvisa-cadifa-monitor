@@ -1,8 +1,10 @@
-
 name: CADIFA Monitor
 
 on:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   executar:
@@ -13,10 +15,20 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - run: |
+      - name: Instalar dependencias
+        run: |
           pip install requests pandas openpyxl
 
-      - run: |
+      - name: Executar script
+        run: |
           python baixar_cadifa.py
+
+      - name: Salvar atualizacao
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add cadifa_completo.xlsx
+          git commit -m "Atualiza CADIFA" || echo "Sem alteracoes"
+          git push
