@@ -224,7 +224,7 @@ def main():
             with open("resultado.txt", "w", encoding="utf-8") as f:
 
                 f.write(
-                    f"Resumo CADIFA\n"
+                   "Resumo CADIFA\n\n"
                     f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n"
                     f"Novas: {len(novas)}\n"
                     f"Removidas: {len(removidas)}\n\n"
