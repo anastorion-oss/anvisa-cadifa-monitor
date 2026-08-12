@@ -3,7 +3,7 @@ name: CADIFA Monitor
 on:
   workflow_dispatch:
   schedule:
-    - cron: '4 12 * * *'
+    - cron: '6 17 * * *'
 
 permissions:
   contents: write
