@@ -29,6 +29,8 @@ import uuid
 import requests
 import pandas as pd
 
+from datetime import datetime
+
 RESOURCE_KEY = "940d6cea-7507-417a-97d1-7ea436d3a113"
 TENANT_ID = "b67af23f-c3f3-4d35-80c7-b7085f5edd81"
 QUERY_URL = "https://wabi-brazil-south-api.analysis.windows.net/public/reports/querydata?synchronous=true"
@@ -211,7 +213,8 @@ def main():
 
             with open("resultado.txt", "w", encoding="utf-8") as f:
                 f.write(
-                    f"{len(novas)} novas CADIFAs encontradas\n\n"
+                    f"{len(novas)} novas CADIFAs encontradas\n"
+                    f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n"
                 )
                 f.write("\n".join(linhas_email))
 
@@ -220,7 +223,10 @@ def main():
         else:
 
             with open("resultado.txt", "w", encoding="utf-8") as f:
-                f.write("0 novas CADIFAs")
+                f.write(
+                    f"0 novas CADIFAs\n"
+                    f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
+                )
 
             print("Nenhuma nova CADIFA encontrada.")
 
