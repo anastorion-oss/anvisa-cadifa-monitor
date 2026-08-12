@@ -3,7 +3,7 @@ name: CADIFA Monitor
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 11 * * *'
+    - cron: '4 12 * * *'
 
 permissions:
   contents: write
@@ -32,5 +32,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add .
-          git commit -m "Atualiza CADIFA" || echo "Sem alteracoes"
+          git commit -m "Atualiza CADIFA" || exit 0
           git push
+          git push || sleep 10 && git push
+          ``
