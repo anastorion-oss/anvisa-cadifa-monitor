@@ -193,22 +193,41 @@ def main():
             )
         ]
 
-        if len(novas) > 0:
-            novas.to_excel("novas_cadifas.xlsx", index=False)
+if len(novas) > 0:
 
-            print(f"{len(novas)} novas CADIFAs encontradas!")
+    novas.to_excel("novas_cadifas.xlsx", index=False)
 
-            for _, linha in novas.iterrows():
-                print(
-                    f"- {linha['Razão Social']} | "
-                    f"{linha['Insumo (IFA)']} | "
-                    f"{linha['Nº CADIFA']}"
-                )
-        else:
-            print("Nenhuma nova CADIFA encontrada.")
+    linhas_email = []
 
-    except Exception as e:
-        print(f"Primeira execução ou erro na comparação: {e}")
+    for _, linha in novas.iterrows():
+
+        texto = (
+            f"{linha['Razão Social']} | "
+            f"{linha['Insumo (IFA)']} | "
+            f"{linha['Nº CADIFA']}"
+        )
+
+        linhas_email.append(texto)
+
+    with open("resultado.txt", "w", encoding="utf-8") as f:
+
+        f.write(
+            f"{len(novas)} novas CADIFAs encontradas\n\n"
+        )
+
+        f.write("\n".join(linhas_email))
+
+    print(f"{len(novas)} novas CADIFAs encontradas!")
+
+else:
+
+    print("Nenhuma nova CADIFA encontrada.")
+
+    with open("resultado.txt", "w", encoding="utf-8") as f:
+        f.write("0 novas CADIFAs")
+
+except Exception as e:
+    print(f"Primeira execução ou erro na comparação: {e}")
 
     df_novo.to_excel(arquivo_atual, index=False)
 
