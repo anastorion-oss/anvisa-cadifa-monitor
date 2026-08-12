@@ -259,8 +259,10 @@ def main():
 
             with open("resultado.txt", "w", encoding="utf-8") as f:
                 f.write(
-                    f"0 novas CADIFAs\n"
-                    f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
+                    f"Resumo CADIFA\n"
+                    f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n"
+                    f"Novas: 0\n"
+                    f"Removidas: {len(removidas)}\n"
                 )
 
             print("Nenhuma nova CADIFA encontrada.")
