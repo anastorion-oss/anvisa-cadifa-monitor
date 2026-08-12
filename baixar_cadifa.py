@@ -183,7 +183,7 @@ def main():
     try:
         df_antigo = pd.read_excel(arquivo_atual)
 
-        # Salva a planilha antiga
+        # Salva a versão anterior
         df_antigo.to_excel(arquivo_anterior, index=False)
 
         # Identifica CADIFAs novas
@@ -210,23 +210,22 @@ def main():
                 linhas_email.append(texto)
 
             with open("resultado.txt", "w", encoding="utf-8") as f:
-
                 f.write(
                     f"{len(novas)} novas CADIFAs encontradas\n\n"
                 )
-
                 f.write("\n".join(linhas_email))
 
             print(f"{len(novas)} novas CADIFAs encontradas!")
 
         else:
 
-            print("Nenhuma nova CADIFA encontrada.")
-
             with open("resultado.txt", "w", encoding="utf-8") as f:
                 f.write("0 novas CADIFAs")
 
+            print("Nenhuma nova CADIFA encontrada.")
+
     except Exception as e:
+
         print(f"Primeira execução ou erro na comparação: {e}")
 
         with open("resultado.txt", "w", encoding="utf-8") as f:
