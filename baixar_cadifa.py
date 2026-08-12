@@ -220,12 +220,38 @@ def main():
 
                 linhas_email.append(texto)
 
+
             with open("resultado.txt", "w", encoding="utf-8") as f:
+
                 f.write(
-                    f"{len(novas)} novas CADIFAs encontradas\n"
+                    f"Resumo CADIFA\n"
                     f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n"
+                    f"Novas: {len(novas)}\n"
+                    f"Removidas: {len(removidas)}\n\n"
                 )
-                f.write("\n".join(linhas_email))
+
+                if len(novas) > 0:
+
+                    f.write("=== NOVAS ===\n")
+
+                    for _, linha in novas.iterrows():
+                        f.write(
+                            f"{linha['Razão Social']} | "
+                            f"{linha['Insumo (IFA)']} | "
+                            f"{linha['Nº CADIFA']}\n"
+                        )
+
+                if len(removidas) > 0:
+
+                    f.write("\n=== REMOVIDAS ===\n")
+
+                    for _, linha in removidas.iterrows():
+                        f.write(
+                            f"{linha['Razão Social']} | "
+                            f"{linha['Insumo (IFA)']} | "
+                            f"{linha['Nº CADIFA']}\n"
+                        )
+
 
             print(f"{len(novas)} novas CADIFAs encontradas!")
 
