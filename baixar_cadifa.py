@@ -195,6 +195,12 @@ def main():
             )
         ]
 
+        removidas = df_antigo[
+            ~df_antigo["Nº CADIFA"].astype(str).isin(
+                df_novo["Nº CADIFA"].astype(str)
+            )
+        ]
+
         if len(novas) > 0:
 
             novas.to_excel("novas_cadifas.xlsx", index=False)
