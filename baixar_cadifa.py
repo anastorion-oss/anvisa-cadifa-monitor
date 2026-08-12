@@ -239,15 +239,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-except Exception as e:
-    print(f"Primeira execução ou erro na comparação: {e}")
-
-    df_novo.to_excel(arquivo_atual, index=False)
-
-    print(f"Total de linhas obtidas: {len(df_novo)}")
-    print(f"Arquivo salvo: {arquivo_atual}")
-
-
-if __name__ == "__main__":
-    main()
