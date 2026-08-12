@@ -2,7 +2,6 @@ name: CADIFA Monitor
 
 on:
   workflow_dispatch:
-``
 
 permissions:
   contents: write
