@@ -1,2 +1,5 @@
-0 novas CADIFAs
-Executado em: 12/08/2026 19:47:12
+Resumo CADIFA
+Executado em: 12/08/2026 20:10:21
+
+Novas: 0
+Removidas: 0
