@@ -201,6 +201,9 @@ def main():
             )
         ]
 
+        print(f"Novas: {len(novas)}")
+        print(f"Removidas: {len(removidas)}")
+
         if len(novas) > 0:
 
             novas.to_excel("novas_cadifas.xlsx", index=False)
