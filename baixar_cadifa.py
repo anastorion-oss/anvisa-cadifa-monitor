@@ -30,6 +30,7 @@ import requests
 import pandas as pd
 
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 RESOURCE_KEY = "940d6cea-7507-417a-97d1-7ea436d3a113"
 TENANT_ID = "b67af23f-c3f3-4d35-80c7-b7085f5edd81"
@@ -260,7 +261,7 @@ def main():
             with open("resultado.txt", "w", encoding="utf-8") as f:
                 f.write(
                     f"Resumo CADIFA\n"
-                    f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n"
+                    f"Executado em: {datetime.now(ZoneInfo('America/Sao_Paulo')).strftime('%d/%m/%Y %H:%M:%S')}\n\n"
                     f"Novas: 0\n"
                     f"Removidas: {len(removidas)}\n"
                 )
