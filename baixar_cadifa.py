@@ -226,7 +226,7 @@ def main():
 
                 f.write(
                    "Resumo CADIFA\n\n"
-                    f"Executado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n"
+                    f"Executado em: {datetime.now(ZoneInfo('America/Sao_Paulo')).strftime('%d/%m/%Y %H:%M:%S')}\n\n"
                     f"Novas: {len(novas)}\n"
                     f"Removidas: {len(removidas)}\n\n"
                 )
