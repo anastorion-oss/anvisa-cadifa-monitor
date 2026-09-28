@@ -1,5 +1,17 @@
 Resumo CADIFA
-Executado em: 25/09/2026 11:15:16
 
-Novas: 0
+Executado em: 28/09/2026 11:15:20
+
+Novas: 9
 Removidas: 0
+
+=== NOVAS ===
+Teva Farmacêutica Ltda. | cloridrato de daunorrubicina | 25351415971202487
+Micro Labs Limited | tartarato de brimonidina | 25351584936202326
+Hikal Limited | pregabalina | 25351169043202192
+Msn Pharmachem Private Limited | cloridrato de moxifloxacino | 25351941006202465
+Fersinsa Gb S.A. De C.V. | amoxicilina tri-hidratada | 25351400200202312
+Vasudha Pharma Chem Limited | loratadina | 25351233832202275
+Sun Pharmaceutical Industries Limited | bissulfato de clopidogrel | 25351135853202498
+Chifeng Arker Pharmaceutical Technology Co.,Ltd | cloridrato de pseudoefedrina | 25351533438202315
+Laurus Labs Limited | enzalutamida | 25351001382202415
