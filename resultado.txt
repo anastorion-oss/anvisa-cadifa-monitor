@@ -1,5 +1,9 @@
 Resumo CADIFA
-Executado em: 06/10/2026 11:15:24
 
-Novas: 0
+Executado em: 07/10/2026 11:15:21
+
+Novas: 1
 Removidas: 0
+
+=== NOVAS ===
+Euroapi Germany Gmbh | dipirona monoidratada | 25351230892202317
