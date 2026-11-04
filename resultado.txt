@@ -1,5 +1,9 @@
 Resumo CADIFA
-Executado em: 03/11/2026 11:15:23
 
-Novas: 0
+Executado em: 04/11/2026 11:15:23
+
+Novas: 1
 Removidas: 0
+
+=== NOVAS ===
+Produtos Roche Químicos E Farmacêuticos S.A. | risdiplam | 25351020492202567
